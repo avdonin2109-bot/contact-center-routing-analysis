@@ -1,4 +1,4 @@
-sql = ('# =============================================================================
+# =============================================================================
 # synthetic_call_generator.py
 # Генератор синтетических данных звонков контактного центра.
 # Один звонок = 1-8 сегментов по типовым цепочкам маршрутизации
@@ -305,4 +305,4 @@ def save_excel(df: pd.DataFrame, out_dir: STR, name: STR = "call_segments.xlsx")
 # =============================================================================
 IF __name__ == "__main__": cfg = CallConfig(n_calls=280_000)
     os.makedirs(cfg.output_dir, exist_ok=TRUE) df = CallDataGenerator(cfg).run() print(f"Звонков: {df[\'call_id\'].nunique()}") print(f"Сегментов: {len(df)}") print(f"Период: {df[\'call_date\'].min()[:10]} - {df[\'call_date\'].max()[:10]}") dist = df.groupby("call_id").size().value_counts().sort_index() total = df["call_id"].nunique() print("\nРаспределение сегментов:")  '
-         'FOR seg, cnt IN dist.items(): IF seg <= 8: print(f"  {seg} сегмент: {cnt} ({cnt/total*100:.1f}%)") save_csv(df, cfg.output_dir) save_sqlite(df, cfg.output_dir, TABLE="call_segments") save_excel(df, cfg.output_dir) print(f"\nСохранено в {cfg.output_dir}:") print("  call_segments.csv, call_segments.db (call_segments), call_segments.xlsx") ')
+         'FOR seg, cnt IN dist.items(): IF seg <= 8: print(f"  {seg} сегмент: {cnt} ({cnt/total*100:.1f}%)") save_csv(df, cfg.output_dir) save_sqlite(df, cfg.output_dir, TABLE="call_segments") save_excel(df, cfg.output_dir) print(f"\nСохранено в {cfg.output_dir}:") print("  call_segments.csv, call_segments.db (call_segments), call_segments.xlsx")
