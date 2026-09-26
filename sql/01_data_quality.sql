@@ -34,3 +34,11 @@ ORDER BY segment_count;
 | 6 | 8 452 | 3,02 |
 | 7 | 5 615 | 2,01 |
 | 8 | 2 797 | 1 |
+
+
+/*
+| segment_count | calls | share_percent |
+|---|---|---|
+| 1 | 11 355 | 4,06 |
+| 2 | 83 998 | 30 |
+*/
